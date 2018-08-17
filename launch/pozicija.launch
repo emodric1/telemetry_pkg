@@ -1,0 +1,6 @@
+<launch>
+
+  <node pkg="telemetrija" name="letjelica" type="talkerpozicija.py" output="screen"/>
+  <node pkg="telemetrija" name="listenerpozicija" type="listenerpozicija.py" output="screen"/>
+
+</launch>
