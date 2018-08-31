@@ -1,0 +1,5 @@
+<launch>
+
+  <node pkg="telemetrija" name="letjelica" type="talkerpid.py" output="screen"/>
+
+</launch>

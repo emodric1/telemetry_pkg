@@ -1,0 +1,17 @@
+<launch>
+
+  <param name="robot_description" command="cat $(find telemetrija)/model.urdf" />
+  <arg name="gui" default="true" />
+  <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" />
+  
+  <node pkg="telemetrija" name="letjelica" type="talkerpozicija1.py" output="screen"/>
+  <node pkg="telemetrija" name="listenerpozicija1" type="listenerpozicija1.py" output="screen"/>
+
+  <param name="use_gui" value="$(arg gui)"/>
+  
+
+  <node pkg="tf" name="bc1" type="static_transform_publisher" args="0 0 0 0 0 0 map model 50" />
+  <node pkg="tf" name="bc2" type="static_transform_publisher" args="0 0 0 0 0 0 map base_link 50" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>

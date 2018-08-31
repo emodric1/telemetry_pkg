@@ -11,6 +11,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  sensor_msgs
+  geometry_msgs
   message_generation
 )
 
@@ -52,6 +54,7 @@ add_message_files(
   FILES
   koordinate.msg
   Num.msg
+  pid.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -72,6 +75,8 @@ add_message_files(
 generate_messages(
   DEPENDENCIES
   std_msgs
+  sensor_msgs
+  geometry_msgs
 )
 
 ################################################
@@ -106,7 +111,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES telemetrija
-  CATKIN_DEPENDS message_runtime roscpp rospy std_msgs
+  CATKIN_DEPENDS message_runtime roscpp rospy std_msgs sensor_msgs geometry_msgs
 #  DEPENDS system_lib
 )
 
